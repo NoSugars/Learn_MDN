@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L12_responsive_image</title>
+
+		<style type="text/css">
+			h3::before{
+				content:'===== ';
+			}
+			table, td, th {
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: .3em;
+			}
+
+			tag {
+				font-weight: bold;
+			}
+			tag::before {
+				content: " < ";
+				font-weight: bold;
+			}
+			tag::after {
+				content: " > ";
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+
+
+
+		<hr/>
+		<h3>响应式图片</h3>
+
+		<p>就是有很多不同尺寸的图片, 浏览器可以选择合适的大小的图片展示, 参见 <a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">MDN 官网</a> .</p>
+		<p>主要是利用 srcset 结合 sizes, 另外就是 引入 src 和 alt 来提供默认响应</p>
+
+		<p>我列一些代码在这里翻遍查阅</p>
+
+
+		<img
+  srcset="elva-fairy-480w.jpg 480w, elva-fairy-800w.jpg 800w"
+  sizes="(max-width: 600px) 480px,
+         800px"
+  src="elva-fairy-800w.jpg"
+  alt="Elva dressed as a fairy" />
+
+<picture>
+  <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg" />
+  <source media="(min-width: 800px)" srcset="elva-800w.jpg" />
+  <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva" />
+</picture>
+
+
+<picture>
+  <source type="image/svg+xml" srcset="pyramid.svg" />
+  <source type="image/webp" srcset="pyramid.webp" />
+  <img
+    src="pyramid.png"
+    alt="regular pyramid built from four equilateral triangles" />
+</picture>
+
+
+
+
+
+		<hr/>
+		<h3>为什么我们不用 CSS 或 JavaScript 来实现？</h3>
+
+		<p>当浏览器开始加载一个页面，它会在主解析器开始加载和解析页面的 CSS 和 JavaScript 之前先下载（预加载）任意的图片。这种有用的机制总体上会减少页面加载时间，但是它对响应式图片没有帮助，所以需要类似 srcset 的实现方法。因为你不能先加载好 <tag>img</tag> 元素后，再用 JavaScript 检测可视窗口的宽度，如果觉得大小不合适，再动态地加载小的图片替换已经加载好的图片，这样的话，原始的图像已经被加载了，然后你又加载了小的图像，这反而更不“响应”了。</p>
+
+	</body>
+</html>

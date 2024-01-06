@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L10_object_iframe_embed</title>
+
+		<style type="text/css">
+			h3::before{
+				content:'===== ';
+			}
+			table, td, th {
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: .3em;
+			}
+			iframe {
+				border: 3px dashed darkgreen;
+			}
+
+		</style>
+	</head>
+	<body>
+
+
+
+		<hr/>
+		<h3>iframe 里加 video</h3>
+
+		<p>当然也可以添加地图</p>
+<iframe src="website.com/videolink" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox> </iframe>
+
+
+
+
+
+
+		<hr/>
+		<h3>iframe 的安全隐患</h3>
+
+		<p>备注： 为了提高速度，在主内容完成加载后，使用 JavaScript 设置 iframe 的 src 属性是个好主意。这使你的页面可以更快地被使用，并减少你的官方页面加载时间（重要的 SEO 指标）</p>
+
+		<p>备注： 单击劫持是一种常见的 iframe 攻击，黑客将隐藏的 iframe 嵌入到你的文档中（或将你的文档嵌入到他们自己的恶意网站），并使用它来捕获用户的交互。这是误导用户或窃取敏感数据的常见方式。</p>
+
+		<p>一个快速的例子——尝试在浏览器中加载上面的例子——你也可以 在 Github 上找到它（参见源代码）。你将不会看到任何内容，但如果你点击浏览器开发者工具中的控制台，你会看到一条消息，告诉你为什么没有显示内容。在 Firefox 中，你会被告知：“X-Frame-Options 拒绝加载 https://developer.mozilla.org/zh-CN/docs/Glossary。这是因为构建 MDN 的开发人员已经在网站页面的服务器上设置了一个不允许被嵌入到 >>> iframe <<< 的设置（请参阅配置 CSP 指令）这是有必要的——整个 MDN 页面被嵌入在其他页面中没有多大意义，除非你想要将其嵌入到你的网站上并将其声称为自己的内容，或尝试通过单击劫持来窃取数据，这都是非常糟糕的事情。此外，如果每个人都这样做，所有额外的带宽将花费 Mozilla 很多资金。</p>
+
+		<h4>只有在必要时嵌入, 另外使用 <em>HTTPS</em> ONLY</h4>
+
+		<p>有时嵌入第三方内容（例如 YouTube 视频和地图）是有意义的，但如果你只在完全需要时嵌入第三方内容，你可以省去很多麻烦。网络安全的一个很好的经验法则是“你怎么谨慎都不为过，如果你决定要做这件事，多检查一遍；如果是别人做的，在被证明是安全的之前，都假设这是危险的。” 除了安全问题，你还应该意识到知识产权问题。无论在线内容还是离线内容，绝大部分内容都是有版权的，甚至是一些你没想到有版权的内容（例如，Wikimedia Commons 上的大多数图片）。不要在网页上展示一些不属于你的内容，除非你是所有者或所有者给了你明确的、书面的许可。对于侵犯版权的惩罚是严厉的。再说一次，你再小心也不为过。如果内容获得许可， 你必须遵守许可条款。 例如，MDN 上的内容是在 CC-BY-SA 下许可的， 这意味着， 如果你要引用我们的内容， 就必须用适当的方式注明来源， 即使你对内容做了实质性的修改。</p>
+
+		<h4>始终使用 sandbox 属性</h4>
+
+
+		<footer>以上文字内容均来自 <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">MDN 官网</a>, 并非我自己写的</footer>
+
+
+	</body>
+</html>

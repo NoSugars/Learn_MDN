@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L09_video_audio</title>
+
+		<style type="text/css">
+			h3::before{
+				content:'===== ';
+			}
+			table, td, th {
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: .3em;
+			}
+
+
+		</style>
+	</head>
+	<body>
+
+
+
+
+
+		<hr/>
+		<h3>视频</h3>
+
+		<p>src 可以写在video 或者 video > source 里</p>
+		<p>if so, 浏览器将会检查 >>> source <<< 标签，并且播放第一个与其自身 codec 相匹配的媒体。你的视频应当包括 WebM 和 MP4 两种格式，这两种在目前已经足够支持大多数平台和浏览器</p>
+		<video controls>
+			<source src="rabbit320.mp4" type="video/mp4" />
+			<source src="rabbit320.webm" type="video/webm" />
+			<p>
+				你的浏览器不支持 HTML5 视频。可点击<a href="rabbit320.mp4">此链接</a>观看
+			</p>
+		</video>
+		<p>不要视频了, 这是代码
+			<pre><code>
+				source src="rabbit320.mp4" type="video/mp4" /
+				source src="rabbit320.webm" type="video/webm" /
+			</code></pre>
+		</p>
+		<p>type 最好还是加上</p>
+
+
+
+
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>其他参数</h3>
+
+		<p>控制, 自动播放, 循环, 静音</p>
+		<p>poster : 这个属性指向了一个图像的 URL，这个图像会在视频播放前显示。通常用于粗略的预览或者广告</p>
+		<p>preload: 这个属性被用来缓冲较大的文件，有3个值可选: none, auto (页面加载后缓存媒体文件), metadata (仅缓冲文件的元数据)</p>
+		<pre><code>
+			controls
+			width="400"
+			height="400"
+			autoplay
+			loop
+			muted
+			poster="poster.png"
+		 </code></pre>
+
+
+
+
+		<hr/>
+		<h3>音频</h3>
+
+		<p>和 video 基本相同, 除了不能调整高度, 没有视觉相关部分, 其他都一样</p>
+		<p>任何时候，你都可以在 Javascript 中调用 load() 方法来重置媒体。如果有多个由 >>> source <<<标签指定的媒体来源，浏览器会从选择媒体来源开始重新加载媒体。</p>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>音轨增删事件</h3>
+		<p>TrackEvent</p>
+		<pre><code>
+		const mediaElem = document.querySelector("video");
+		mediaElem.audioTracks.onaddtrack = function (event) {
+		  audioTrackAdded(event.track);
+		};
+		</code></pre>
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>显示音轨文本</h3>
+
+		<p>WebVTT (en-US) 格式, >>> track <<< 像是字幕</p>
+		<pre><code>
+		track kind="subtitles" src="subtitles_en.vtt" srclang="en" /
+		</code></pre>
+		<video controls>
+		  <source src="example.mp4" type="video/mp4" />
+		  <source src="example.webm" type="video/webm" />
+		  <track kind="subtitles" src="subtitles_en.vtt" srclang="en" />
+		</video>
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

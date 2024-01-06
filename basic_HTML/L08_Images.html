@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L08_Images</title>
+
+		<style type="text/css">
+			h3::before{
+				content:'===== ';
+			}
+			table, td, th {
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: .3em;
+			}
+			p.bgdimg {
+				background-image: url("images/nosugars.png");
+				background-size: 100px 100px;
+				background-repeat: round;
+/*				background-repeat: no-repeat;*/
+			}
+
+		</style>
+	</head>
+	<body>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>img Tag</h3>
+
+		<p>如果这张图片存储在和 HTML 页面同路径的 images 文件夹下（这也是 Google 推荐的做法，利于 SEO/索引）</p>
+		<p>图片最好不要带绝对网址, 否则会慢半拍</p>
+		<img src="images/nosugars.png" width="100px" />
+		<img src="images/dinosaur.jpg" alt="alt=: 如果你看不见图, 就只能看这个字儿了" />
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>img Tag</h3>
+
+		<p>纵横比失调 <strong>如果你需要改变图片的尺寸，你应该使用 CSS 而不是 HTML。</strong></p>
+		<img src="images/nosugars.png" width="400px" height="100px" />
+
+
+		<h4>title 还是用来显示鼠标 hover 的 tip</h4>
+		<img
+			src="images/nosugars.png"
+			alt="一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。"
+			width="100"
+			title="A T-Rex on display in the Manchester University Museum" />
+
+
+
+
+
+
+
+		<hr/>
+		<h3>figure & figcaption</h3>
+
+		<h4>对比一下</h4>
+		<div class="figure">
+			<img
+				src="images/nosugars.png"
+				alt="The head and torso of a dinosaur skeleton;
+								it has a large head with long sharp teeth"
+				width="100" />
+
+			<p>A T-Rex on display in the Manchester University Museum.</p>
+		</div>
+		<h4>上下对比一下</h4>
+		<figure>
+			<img
+				src="images/nosugars.png"
+				alt="The head and torso of a dinosaur skeleton;
+								it has a large head with long sharp teeth"
+				width="100" />
+
+			<figcaption>
+				A T-Rex on display in the Manchester University Museum.
+			</figcaption>
+		</figure>
+
+
+
+
+
+
+		<hr/>
+		<h3>css在文字后面加图片</h3>
+
+		<p class='bgdimg'>随便一段废话: The resulting embedded image is arguably easier to position and control than HTML images. So why bother with HTML images? As hinted to above, CSS background images are for decoration only. If you just want to add something pretty to your page to enhance the visuals, this is fine. Though, such images have no semantic meaning at all. They can't have any text equivalents, are invisible to screen readers, and so on. This is where HTML images shine!</p>
+
+
+
+	</body>
+</html>

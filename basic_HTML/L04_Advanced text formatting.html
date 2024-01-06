@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L04_Advanced text formatting</title>
+
+		<style type="text/css">
+			h3::before{
+				content:'===== ';
+			}
+		</style>
+	</head>
+	<body>
+
+
+
+
+
+		<hr/>
+		<h3>Description list</h3>
+
+		<dl>
+			<dt>soliloquy</dt>
+			<dd>
+				In drama, where a character speaks to themselves, representing their inner
+				thoughts or feelings and in the process relaying them to the audience (but
+				not to other characters.)
+			</dd>
+			<dt>monologue</dt>
+			<dd>
+				In drama, where a character speaks their thoughts out loud to share them
+				with the audience and any other characters present.
+			</dd>
+			<dt>aside</dt>
+			<dd>
+				In drama, where a character shares a comment only with the audience for
+				humorous or dramatic effect. This is usually a feeling, thought, or piece of
+				additional background information.
+			</dd>
+		</dl>
+
+
+		<h4>Multiple descriptions for one term</h4>
+		<dl>
+			<dt>aside</dt>
+			<dd>
+				In drama, where a character shares a comment only with the audience for
+				humorous or dramatic effect. This is usually a feeling, thought, or piece of
+				additional background information.
+			</dd>
+			<dd>
+				In writing, a section of content that is related to the current topic, but
+				doesn't fit directly into the main flow of content so is presented nearby
+				(often in a box off to the side.)
+			</dd>
+		</dl>
+
+
+		<h4>Marking up a set of definitions</h4>
+		<dl>
+			<dt>Bacon</dt>
+			<dd>The glue that binds the world together.</dd>
+			<dt>Eggs</dt>
+			<dd>The glue that binds the cake together.</dd>
+			<dt>Coffee</dt>
+			<dd>The drink that gets the world running in the morning.</dd>
+			<dd>A light brown color.</dd>
+		</dl>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Blockquotes</h3>
+<p>
+	The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
+	<em>HTML Block Quotation Element</em>) indicates that the enclosed text is an
+	extended quotation.
+</p>
+<p>对比一下前后</p>
+<p>Here is a blockquote:</p>
+<blockquote
+	cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+	<p>
+		The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
+		<em>HTML Block Quotation Element</em>) indicates that the enclosed text is
+		an extended quotation.
+	</p>
+</blockquote>
+
+
+
+
+
+
+		<hr/>
+		<h3>Inline quotations</h3>
+		<p>
+			The quote element — <code>&lt;q&gt;</code> — is
+			<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+				intended for short quotations that don't require paragraph breaks.
+			</q>
+		</p>
+
+
+
+
+
+
+		<hr/>
+		<h3>Citations</h3>
+
+		<p>
+			According to the
+			<a href="/en-US/docs/Web/HTML/Element/blockquote">
+				<cite>MDN blockquote page</cite></a>:
+		</p>
+
+		<blockquote
+			cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+			<p>
+				The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
+				<em>HTML Block Quotation Element</em>) indicates that the enclosed text is
+				an extended quotation.
+			</p>
+		</blockquote>
+
+		<p>
+			The quote element — <code>&lt;q&gt;</code> — is
+			<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+				intended for short quotations that don't require paragraph breaks.
+			</q>
+			— <a href="/en-US/docs/Web/HTML/Element/q"><cite>MDN q page</cite></a>.
+		</p>
+
+
+
+		<hr/>
+		<h3>Who said that?</h3>
+
+		<p>Hello and welcome to my motivation page. As <a href="http://www.brainyquote.com/quotes/authors/c/confucius.html"><cite>Confucius' quotes site</cite></a> says:</p>
+
+		<blockquote cite="http://www.brainyquote.com/quotes/authors/c/confucius.html">
+		 <p>It does not matter how slowly you go as long as you do not stop.</p>
+		</blockquote>
+
+		<p>I also love the concept of positive thinking, and <q cite="http://example.com/affirmationsforpositivethinking">The Need To Eliminate Negative Self Talk</q> (as mentioned in <a href="http://example.com/affirmationsforpositivethinking"><cite>Affirmations for Positive Thinking</cite></a>.)</p>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Abbreviations</h3>
+
+		<p>
+			We use <abbr>HTML</abbr>, Hypertext Markup Language, to structure our web
+			documents. <strong>下面没加....</strong> 因为没有title
+		</p>
+
+		<p>
+			I think <abbr title="Reverend">Rev.</abbr> Green did it in the kitchen with
+			the chainsaw. <strong>下面加....了</strong>
+		</p>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Marking up contact details</h3>
+
+		<h4>格式 1</h4>
+		<address>Chris Mills, Manchester, The Grim North, UK</address>
+
+		<h4>格式 2</h4>
+		<address>
+			<p>
+				Chris Mills<br />
+				Manchester<br />
+				The Grim North<br />
+				UK
+			</p>
+
+			<ul>
+				<li>Tel: 01234 567 890</li>
+				<li>Email: me@grim-north.co.uk</li>
+			</ul>
+		</address>
+
+		<h4>格式 3</h4>
+		<address>
+			Page written by <a href="../authors/chris-mills/">Chris Mills</a>.
+		</address>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Superscript and subscript</h3>
+
+<p>My birthday is on the 25<sup>th</sup> of May 2001.</p>
+<p>
+	Caffeine's chemical formula is
+	C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.
+</p>
+<p>If x<sup>2</sup> is 9, x must equal 3 or -3.</p>
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Representing computer code</h3>
+
+		<p>发现了没, 尖括号必须用&符号表示</p>
+		<div class="section-content"><p>There are a number of elements available for marking up computer code using HTML:</p>
+		<ul>
+			<li><a href="/en-US/docs/Web/HTML/Element/code"><code>&lt;code&gt;</code></a>: For marking up generic pieces of computer code.</li>
+			<li><a href="/en-US/docs/Web/HTML/Element/pre"><code>&lt;pre&gt;</code></a>: For retaining whitespace (generally code blocks) — if you use indentation or excess whitespace inside your text, browsers will ignore it and you will not see it on your rendered page. If you wrap the text in <code>&lt;pre&gt;&lt;/pre&gt;</code> tags however, your whitespace will be rendered identically to how you see it in your text editor.</li>
+			<li><a href="/en-US/docs/Web/HTML/Element/var"><code>&lt;var&gt;</code></a>: For specifically marking up variable names.</li>
+			<li><a href="/en-US/docs/Web/HTML/Element/kbd"><code>&lt;kbd&gt;</code></a>: For marking up keyboard (and other types of) input entered into the computer.</li>
+			<li><a href="/en-US/docs/Web/HTML/Element/samp"><code>&lt;samp&gt;</code></a>: For marking up the output of a computer program.</li>
+		</ul>
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Representing computer code 2</h3>
+<pre><code>const para = document.querySelector('p');
+
+para.onclick = function() {
+  alert('Owww, stop poking me!');
+}</code></pre>
+
+<p>
+  You shouldn't use presentational elements like <code>&lt;font&gt;</code> and
+  <code>&lt;center&gt;</code>.
+</p>
+
+<p>
+  In the above JavaScript example, <var>para</var> represents a paragraph
+  element.
+</p>
+
+<p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+
+<pre>$ <kbd>ping mozilla.org</kbd>
+<samp>PING mozilla.org (63.245.215.20): 56 data bytes
+64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+
+
+
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Marking up times and dates</h3>
+
+		<h4>各种格式</h4>
+		<time datetime="2016-01-20">20 January 2016</time><br/>
+		<!-- Standard simple date -->
+		<time datetime="2016-01-20">20 January 2016</time><br/>
+		<!-- Just year and month -->
+		<time datetime="2016-01">January 2016</time><br/>
+		<!-- Just month and day -->
+		<time datetime="01-20">20 January</time><br/>
+		<!-- Just time, hours and minutes -->
+		<time datetime="19:30">19:30</time><br/>
+		<!-- You can do seconds and milliseconds too! -->
+		<time datetime="19:30:01.856">19:30:01.856</time><br/>
+		<!-- Date and time -->
+		<time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time><br/>
+		<!-- Date and time with timezone offset -->
+		<time datetime="2016-01-20T19:30+01:00">
+		  7.30pm, 20 January 2016 is 8.30pm in France
+		</time><br/>
+		<!-- Calling out a specific week number -->
+		<time datetime="2016-W04">The fourth week of 2016</time><br/>
+
+
+
+	</body>
+</html>
