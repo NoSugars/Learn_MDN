@@ -16,9 +16,10 @@
 13. [L12_responsive_image](https://nosugars.github.io/Learn_MDN/basic_HTML/L12_responsive_image.html)
 
 ### CSS
-1. [L01_cssTest_Selector](https://nosugars.github.io/Learn_MDN/basic_CSS/L01_cssTest_Selector.html)
-2. [L02_BoxModel](https://nosugars.github.io/Learn_MDN/basic_CSS/L02_BoxModel.html)
-3. [L03_Layout](https://nosugars.github.io/Learn_MDN/basic_CSS/L03_Layout.html)
+1. [L01_Selector](https://github.com/NoSugars/Learn_MDN/blob/main/basic_CSS/L01_Selector.css)
+2. [L01_cssTest_Selector](https://nosugars.github.io/Learn_MDN/basic_CSS/L01_cssTest_Selector.html)
+3. [L02_BoxModel](https://nosugars.github.io/Learn_MDN/basic_CSS/L02_BoxModel.html)
+4. [L03_Layout](https://nosugars.github.io/Learn_MDN/basic_CSS/L03_Layout.html)
 
 ### javascript
 1. [Grammar and Types.js](https://github.com/NoSugars/Learn_MDN/blob/main/basic_js/Grammar_and_Types.js) ([MDN Link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types))
