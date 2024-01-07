@@ -1,0 +1,159 @@
+
+
+/* =================== 可以选择标题, id, class, attribute, 伪类, 伪元素
+====================================================================== */
+
+h1 {}				/* 标签名 */
+p {}				/* 标签名 */
+#id1 {}				/* id */
+.class1 {}			/* class */
+p[attr1=v1] {}		/* attribute */
+p[title] {}			/* attribute */
+
+p:hover {}			/* 伪类 */
+p:focus {}			/* 伪类 */
+
+p::first-line {}	/* 伪元素 */
+
+
+/* -------------------------------------------------------------------- */
+
+* { margin: 10px }			/* 全局 选择 */
+
+article *:first-child {}	/* 选中: article 的子元素中的第一个 */
+article :first-child {}		/* 选中: article 的子元素中的第一个, 同上 */
+article:first-child {}		/* 选中: article 作为第一个子元素 */
+
+.c1.c2 {}					/* 同时具备 c1 c2 */
+#d1#d2 {}					/* id 不能同时满足两个, 甚至不能设置两个值, id 属性的值唯一 */
+
+[attr1=a] {}				/* 只有 a */
+[attr1~=a] {}				/* 多个值中 有一个 a 就算 */
+[attr1^=a] {}				/* 以 a 开头的 */
+[attr1$=a] {}				/* 以 a 结尾的 */
+[attr1*=a] {}				/* 整个串中含有 a 就算 */
+[attr1=a i] {}				/* 加个 i 表示大小写不敏感 */
+
+
+/* -------------------------------------------------------------------- */
+
+p:first-child {}	/* 作为第一个子元素 */
+p:last-child {}		/* 作为最后一个子元素 */
+p:invalid {}		/* 不是每一个 元素 都会 invalid, 只有需要验证的才有 */
+
+
+
+p::first-line {}
+p::before { content: '' }	/* 通常只是加入一些图标之类的方便识别, 毕竟文字的话 不方便 */
+p::after { content: '' }	/* 因为对于一些屏幕阅读器来说，文本是不可见的，而且对于未来别人的查找和编辑也不是很方便 */
+
+/* -------------------------------------------------------------------- */
+
+
+article p[xx~=a] {}		/* 后代选择器, p 可以是儿子孙子曾孙子, 多深都可以 */
+article>p[xx~=a] {}		/* 子代选择器, p 只可以是儿子, 后面再多都不算数 */
+p + img {}				/* img 被选中, 而且 img 紧随 p 之后 */
+p ~ img {}				/* img 被选中, img 和 p 平级, 且在 p 之后, 中间隔再多别的都算数*/
+
+
+
+/* ================== Cascade layers, 层叠层, 感觉很复杂的样子
+====================================================================== */
+
+@layer theme，layout，utilities;
+@layer layout {	main {} }
+@import url(comments.css) layer(social);
+@import url(sm-icons.css) layer(social);
+@import url("ruby-narrow.css") layer(international) supports(display: ruby) and (width < 32rem);
+@import url("ruby-wide.css") layer(international) supports(display: ruby) and (width >= 32rem);
+
+@import url(layers1.css) layer(example);
+@layer example.layout {	main {} }
+/* ======================================================================
+
+无效的会被忽略
+
+
+
+
+Reference:
+
+选择器	描述
+:active	在用户激活（例如点击）元素的时候匹配。
+:any-link	匹配一个链接的:link和:visited状态。
+:blank	匹配空输入值的<input>元素。
+:checked	匹配处于选中状态的单选或者复选框。
+:current (en-US)	匹配正在展示的元素，或者其上级元素。
+:default	匹配一组相似的元素中默认的一个或者更多的 UI 元素。
+:dir	基于其方向性（HTMLdir属性或者 CSSdirection属性的值）匹配一个元素。
+:disabled	匹配处于关闭状态的用户界面元素
+:empty	匹配除了可能存在的空格外，没有子元素的元素。
+:enabled	匹配处于开启状态的用户界面元素。
+:first	匹配分页媒体的第一页。
+:first-child	匹配兄弟元素中的第一个元素。
+:first-of-type	匹配兄弟元素中第一个某种类型的元素。
+:focus	当一个元素有焦点的时候匹配。
+:focus-visible	当元素有焦点，且焦点对用户可见的时候匹配。
+:focus-within	匹配有焦点的元素，以及子代元素有焦点的元素。
+:future (en-US)	匹配当前元素之后的元素。
+:hover	当用户悬浮到一个元素之上的时候匹配。
+:indeterminate	匹配未定态值的 UI 元素，通常为复选框。
+:in-range	用一个区间匹配元素，当值处于区间之内时匹配。
+:invalid	匹配诸如<input>的位于不可用状态的元素。
+:lang	基于语言（HTMLlang属性的值）匹配元素。
+:last-child	匹配兄弟元素中最末的那个元素。
+:last-of-type	匹配兄弟元素中最后一个某种类型的元素。
+:left	在分页媒体中，匹配左手边的页。
+:link	匹配未曾访问的链接。
+:local-link (en-US)	匹配指向和当前文档同一网站页面的链接。
+:is()	匹配传入的选择器列表中的任何选择器。
+:not	匹配作为值传入自身的选择器未匹配的物件。
+:nth-child	匹配一列兄弟元素中的元素——兄弟元素按照an+b形式的式子进行匹配（比如 2n+1 匹配元素 1、3、5、7 等。即所有的奇数个）。
+:nth-of-type	匹配某种类型的一列兄弟元素（比如，<p>元素）——兄弟元素按照an+b形式的式子进行匹配（比如 2n+1 匹配元素 1、3、5、7 等。即所有的奇数个）。
+:nth-last-child	匹配一列兄弟元素，从后往前倒数。兄弟元素按照an+b形式的式子进行匹配（比如 2n+1 匹配按照顺序来的最后一个元素，然后往前两个，再往前两个，诸如此类。从后往前数的所有奇数个）。
+:nth-last-of-type	匹配某种类型的一列兄弟元素（比如，<p>元素），从后往前倒数。兄弟元素按照an+b形式的式子进行匹配（比如 2n+1 匹配按照顺序来的最后一个元素，然后往前两个，再往前两个，诸如此类。从后往前数的所有奇数个）。
+:only-child	匹配没有兄弟元素的元素。
+:only-of-type	匹配兄弟元素中某类型仅有的元素。
+:optional	匹配不是必填的 form 元素。
+:out-of-range	按区间匹配元素，当值不在区间内的的时候匹配。
+:past (en-US)	匹配当前元素之前的元素。
+:placeholder-shown	匹配显示占位文字的 input 元素。
+:playing	匹配代表音频、视频或者相似的能“播放”或者“暂停”的资源的，且正在“播放”的元素。
+:paused	匹配代表音频、视频或者相似的能“播放”或者“暂停”的资源的，且正在“暂停”的元素。
+:read-only	匹配用户不可更改的元素。
+:read-write	匹配用户可更改的元素。
+:required	匹配必填的 form 元素。
+:right	在分页媒体中，匹配右手边的页。
+:root	匹配文档的根元素。
+:scope	匹配任何为参考点元素的的元素。
+:valid	匹配诸如<input>元素的处于可用状态的元素。
+:target	匹配当前 URL 目标的元素（例如如果它有一个匹配当前URL 分段的元素）。
+:visited	匹配已访问链接。
+
+
+选择器	描述
+::after	匹配出现在原有元素的实际内容之后的一个可样式化元素。
+::before	匹配出现在原有元素的实际内容之前的一个可样式化元素。
+::first-letter	匹配元素的第一个字母。
+::first-line	匹配包含此伪元素的元素的第一行。
+::grammar-error	匹配文档中包含了浏览器标记的语法错误的那部分。
+::selection	匹配文档中被选择的那部分。
+::spelling-error	匹配文档中包含了浏览器标记的拼写错误的那部分。
+
+
+====================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

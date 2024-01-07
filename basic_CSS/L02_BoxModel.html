@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L02_Box Model</title>
+
+
+		<link rel="stylesheet" href="my-css-file.css" />
+		<script src="my-js-file.js" defer></script>
+		<style type="text/css">
+			h3::before { content: '======= ' }
+		</style>
+	</head>
+	<body>
+
+
+
+		<hr/>
+		<h3>盒模型, margin, border, padding, content</h3>
+
+		<div class='c1'>
+			<p>abcdefghijklmnopqrstuvwxyz</p>
+		</div>
+		<div class='c1'>
+			abcdefghijklmnopqrstuvwxyz
+		</div>
+		<div class='c2'>
+			abcdefghijklmnopqrstuvwxyz
+		</div>
+
+		<style type="text/css">
+			.c1 {				
+				width: 200px;		/* 内容宽度 */				
+				padding: 40px;
+				margin: 40px;		/* 与前一行的 margin 是 共享的模式 */
+				border: 40px solid lightseagreen;
+			}
+			.c2 {
+				width: 200px;
+				border: 1px dashed black;
+			}
+			p {
+				border: 1px dashed black;
+			}
+		</style>
+
+
+
+
+
+		<hr/>
+		<h3>inline-block, block</h3>
+
+		<p class='c4'>
+			abcd efg hijk lmn opq rst uvw xyz 
+			<div class='c3'>
+				abcdefghijklmnopqrstuvwxyz
+			</div>
+			abcd efg hijk lmn opq rst uvw xyz
+			<div class='c3'>
+				abcdefghijklmnopqrstuvwxyz
+			</div>
+			abcd efg hijk lmn opq rst uvw xyz
+			<div>
+				abcdefghijklmnopqrstuvwxyz
+			</div>
+		abcd efg hijk lmn opq rst uvw xyz </p>
+		<style type="text/css">
+			.c3 {
+				/* 那就只考虑内容, 空白部分 可以被覆盖 */
+				display: inline;
+
+				/* 与前一行的 margin 不再共享了 */
+/*				display: inline-block;*/
+
+				width: 200px;			
+				padding: 40px;
+				margin: 40px;
+				border: 40px solid lightseagreen;
+			}
+			.c4 {
+				display: flex;
+				padding: 40px;
+				margin: 40px;
+				border: 40px solid lightblue;
+			}
+		</style>
+
+
+		<hr/>
+		<h3>background, border</h3>
+
+		<div class="c5 bgcolor1">abcd efg hijk lmn opq rst uvw xyz</div>
+		<div class="c5 bgcolor2">abcd efg hijk lmn opq rst uvw xyz</div>
+		<div class="c5 bgcolor3">abcd efg hijk lmn opq rst uvw xyz</div>
+
+		<style type="text/css">
+			.c5 {
+				display: inline-block;
+				width: 400px;
+				height: 200px;
+				margin: 2px;
+				border: 2px solid black;
+			}
+			.bgcolor1{
+				background:
+					linear-gradient(135deg,
+						rgba(255, 255, 255, 0.2) 39%,
+						rgba(51, 56, 57, 1) 96% )
+						center center / 300px 150px no-repeat,
+					url(images/nosugars.png)
+						bottom center / 40px 40px repeat-x,
+					darksalmon;
+				border-style: dotted;
+				border-width: 4px;
+
+				writing-mode: horizontal-tb;
+				border-bottom-right-radius: 30% 2em;
+			}
+			.bgcolor2{
+				background:
+					linear-gradient(30deg,
+						rgba(255, 255, 255, 0.2) 30%,
+						rgba(0, 0, 0, 1) 120% )
+						center center / 300px 150px no-repeat,
+					url(images/nosugars.png)
+						center left / 40px 40px repeat-x,
+					green;
+				border-style: dashed;
+				border-width: 4px;
+
+				writing-mode: vertical-rl;
+				inline-size: 150px;		/* 由于文字方向改变, 用 inline-size 代替 转向后的 width */
+				block-size: 300px;		/* 由于文字方向改变, 用 block-size 代替 转向后的 height */
+			}
+			.bgcolor3{
+				background-image:
+					radial-gradient( circle,
+						rgb(250 255 0 / 100%) 39%,
+						rgb(51 56 57 / 80%) 96%);
+				background-size: 100px 50px;
+				border-style: double;
+				border-width: 4px;
+
+				border-radius: 20px;
+			}
+		</style>
+
+
+
+
+
+
+		<hr/>
+		<h3>overflow</h3>
+
+		<div class="c6">overflow 属性是你控制一个元素溢出的方式，它告诉浏览器你想怎样处理溢出。overflow 的默认值为 visible，这就是我们的内容溢出的时候，我们在默认情况下看到它们的原因。
+		如果你想在内容溢出的时候把它裁剪掉，你可以在你的盒子上设置 overflow: hidden。这就会像它表面上所显示的那样作用——隐藏掉溢出。这可能会很自然地让东西消失掉，所以你只应该在判断隐藏内容不会引起问题的时候这样做。</div>
+
+		<style type="text/css">
+			.c6 {
+				width: 200px;
+				height: 200px;
+				border: 2px solid green;
+				overflow-x: scroll;
+/*				overflow: scroll;*/
+/*				overflow: auto;*/
+
+			}
+		</style>
+
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>Value and Units</h3>
+
+		<div class="c7"></div>
+		<!-- <div class="c8"></div> -->
+
+		<style type="text/css">
+			.c7 {
+				/* 各种单位: cm, mm, in, Q=1/4 mm, pc (Picas)=1/6 in, pt=1/72 in, px */
+				/* 各种单位: em, rem, ex(x高), ch(0宽), lh, rlh, vw(视口1%), vh(视口1%) */
+				/* 各种单位: vmin, vmax, vb, vi, svw, svh, lvw, lvh, dvw, dvh */
+				width: calc(40% + 20px);
+				height: 200px;
+				border: 20px solid green;
+				margin: 20px;
+				border-left-color: rgba(60, 200, 0, 1.0);
+				border-top-color: rgb(255 99 99 / 50%);
+				border-right-color: hsl(188 97% 28% / .3);
+				border-bottom-color: #128a7d;
+				background-image: url('images/nosugars.png');
+				background-size: 50px 50px;
+				background-position-x: 30px;
+				background-position-y: 30px;
+			}
+			.c8 {
+				border: 2px solid green;
+				width: 98vw;
+				height: 98vh;
+				margin: 0;
+			}
+
+
+		</style>
+
+
+
+
+
+
+
+		<hr/>
+		<h3>图像、媒体和表单元素</h3>
+
+		<div class="c9">
+			<img src="images/nosugars.png" />
+		</div>
+
+		<style type="text/css">			
+			.c9 {
+				border: 2px solid green;
+				width: 20vw;
+				height: 20vh;
+				margin: 0;
+			}
+			img {
+				/* 两个同时 100%, 就扭曲了 */
+				width: 100%;
+				height: 100%;
+				
+				--shado: 5px;
+				box-shadow: var(--shado) var(--shado) var(--shado) var(--shado) rgb(200 50 20 / 50%);
+
+				/* 相当于 clip */
+				object-fit: cover;
+
+				/* 相当于 等比例缩放 */
+/*				object-fit: contain;*/
+
+			}
+		</style>
+
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>L01_Selector</title>
+
+
+		<link rel="stylesheet" href="my-css-file.css" />
+		<script src="my-js-file.js" defer></script>
+		<style type="text/css">
+			h3::before { content: '======= ' }
+		</style>
+	</head>
+	<body>
+
+
+
+
+
+
+
+
+		<hr/>
+		<h3>选择器 测试, 对比代码看效果</h3>
+
+		<div><article>
+			<p>#d1: article 1</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+		</article></div>
+
+		<hr/>
+		<article>
+			<p id='d1'>#d1: article 2. 一个段落 abcde fgh ijk lmn opq rst uvw xyz abcde fgh ijk lmn opq rst uvw xyz abcde fgh ijk lmn opq rst uvw xyz abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p class='c1 c2'>.c1.c2: 2个段落</p>
+			<p xiao='xx'>[xiao=xx] 3个段落</p>
+			<p class='c1'>.c1: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p id='d1 d2'>#d1#d2: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p id='d2'>#d2: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p>abcde fgh ijk lmn opq rst uvw xyz</p>
+			<span>span: abcde fgh ijk lmn opq rst uvw xyz</span>
+			<span>span: abcde fgh ijk lmn opq rst uvw xyz</span>
+		</article>
+
+		<hr/>
+		<article>
+			<p>article 3</p>
+			<p xx='a'>.a: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p xx='b a'>.b.a: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p xx='abc'>.abc: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p xx='cba'>.cba: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p xx='bc bac cb'>.bc.bac.cb: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<p xx='A'>.A: abcde fgh ijk lmn opq rst uvw xyz</p>
+			<span>span: abcde fgh ijk lmn opq rst uvw xyz</span>
+			<span>span: abcde fgh ijk lmn opq rst uvw xyz</span>
+			<span>span: abcde fgh ijk lmn opq rst uvw xyz</span>
+		</article>
+
+
+
+		<style type="text/css">
+
+/*			article :first-child { color: red }*/
+/*			article:first-child { color: green }*/
+/*			article *:first-child { color: darkblue }*/
+
+/*			p[xiao=xx] { color: pink }*/
+/*			.c1.c2 { color: darksalmon; }*/
+/*			#d1#d2 { color: darksalmon; }*/
+/*			#d2 { color: salmon; }*/
+
+/*			[xx=a] { color: salmon }*/
+/*			[xx~=a] { color: red }*/
+/*			[xx^=a] { color: blue }*/
+/*			[xx$=a] { color: blue }*/
+/*			[xx*=a] { color: blue }*/
+/*			[xx=a i] { color: salmon }*/
+
+/*			article:first-child { color: salmon }*/
+/*			article:last-child { color: red }*/
+/*			article:only-child { color: red }*/
+/*			article:invalid { color: red }*/
+
+/*			article p:first-child::first-line { font-size: 120%; font-weight: bold;	}*/
+
+		</style>
+
+
+
+
+
+
+
+		<hr/>
+		<h4>关于需要验证的地方</h4>
+		<form>
+			<label for="email">邮箱: </label>
+			<input id="email" name="email" type="email" value="na@me@example.com" />
+
+			<label for="secret">密码</label>
+			<input id="secret" name="secret" type="text" value="test" pattern="[a-z]+" />
+
+			<label for="age">年龄 (18+)</label>
+			<input id="age" name="age" type="number" value="5" min="18" />
+
+			<label><input name="tos" type="checkbox" required checked /> - 要不要加入德云社 (必选)?</label>
+		</form>
+
+		<style type="text/css">
+			label {
+				display: block;
+				margin-top: 1em;
+			}
+
+			input:invalid {
+				background-color: ivory;
+				border: none;
+				outline: 2px solid red;
+				border-radius: 5px;
+			}
+
+		</style>
+
+		<dl>
+			<dt>验证的方式:</dt>
+			<dd>type=email</dd>
+			<dd>text[pattern='[a-z]']</dd>
+			<dd>number[min, max]</dd>
+			<dd>checkbox[required checked]</dd>
+			<dd>xxxxxxxxx</dd>
+		</dl>
+		<hr/>
+
+
+
+
+	</body>
+</html>
