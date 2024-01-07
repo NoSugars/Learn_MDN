@@ -69,6 +69,24 @@ p ~ img {}				/* img 被选中, img 和 p 平级, 且在 p 之后, 中间隔再�
 
 @import url(layers1.css) layer(example);
 @layer example.layout {	main {} }
+
+
+/* ================== media, 媒体查询
+====================================================================== */
+
+@media media-type and (media-feature-rule) {}
+@media print {}
+@media screen and (width: 600px) {}
+@media screen and (max-width: 400px) {}
+@media (orientation: landscape) {}
+
+/* 作为四级规范的一部分，hover媒体特征被引入了进来。这种特征意味着你可以测试用户是否能在一个元素上悬浮，这也基本就是说他们正在使用某种指点设备，因为触摸屏和键盘导航是没法实现悬浮的。 */
+@media (hover: hover) {} 
+
+/* and, or, ! 关系 */
+@media screen and (min-width: 400px) and (orientation: landscape)	{}
+@media screen and (min-width: 400px), screen and (orientation: landscape) {}
+@media not all and (orientation: landscape) {}
 /* ======================================================================
 
 无效的会被忽略
